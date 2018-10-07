@@ -1,0 +1,16 @@
+body { 
+	padding: 20;
+	font-size: 11pt;
+	line-height: 170%;
+	color: #555;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+} 
+
+h1, h2 {
+	color: #000078;
+}
+
+input.jscolor {
+	width: 60px;
+	text-align: center;
+}

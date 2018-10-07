@@ -1,13 +1,15 @@
+<html>
 <head>
 	<title>UOC - Text enriquit</title>
 	<meta charset="UTF-8">
 	<script>
-		function trans() {
+		function createHtml() {
+			var color = document.getElementById("color").value;
 			var string = document.getElementById("first").value;
 			var tokens1 = string.split("`");
 			for (i = tokens1.length - 1; i >= 0; i--) {
 				if (i % 2 != 0) {
-					tokens1.splice(i, 1, "<span style='color: #ff00ff; font-family: terminal, monaco, monospace; font-size: 10pt;'>", tokens1[i], "</span>");
+					tokens1.splice(i, 1, "<span style='color: " + color + "; font-family: terminal, monaco, monospace; font-size: 10pt;'>", tokens1[i], "</span>");
 				} else {
 					var tokens2 = tokens1[i].split("**");
 					for (j = tokens2.length - 1; j >= 0; j--) {
@@ -29,29 +31,36 @@
 
 			var tokens = [].concat.apply([], tokens1);
 			var result = tokens.join("").replace(/(?:\r\n|\r|\n)/g, "<br>");
-
-			document.getElementById("second").value = result;
+			document.getElementById("second").value = result;			
+		}
+		
+		function copyToClipboard() {
+			document.getElementById("second").select();
+			document.execCommand("copy");
+			document.getElementById("first").focus();
 		}
 	</script>
-	<script src="https://cdn.rawgit.com/oscarmorrison/md-page/5833d6d1/md-page.js"></script><noscript>
+	<script src="jscolor.js"></script>		
+	<link rel="stylesheet" type="text/css" href="theme.css">
 </head>
+	
+<body>
+<h1>Eina per facilitar l'escriptura de missatges amb formats al campus de la UOC</h1>
+<h2>Instruccions</h2>
+<ol>
+<li>Al requadre groc, escriu el missatge que vulguis publicar al campus de la UOC.</li>
+<li>Quan acabis, prem el botó <strong>Copiar el missatge al porta-retalls</strong>.</li>
+<li>Al campus de la UOC, fes servir l'opció <strong>Nou missatge</strong> amb normalitat. A l'editor, selecciona l'opció <strong>Text pla</strong> i al quadre de text principal del missatge enganxa el contingut del porta-retalls. A partir d'aquí, pots publicar el missatge directament (<strong>Envia</strong>) o pots comprovar que el resultat és l'esperat tornant a <strong>Text enriquit</strong>.</li>
+</ol>
 
-# Eina per facilitar l'escriptura de missatges amb formats al campus de la UOC
-
-## Instruccions
-
-1. Al requadre groc d'aquesta pàgina escriu el missatge que vulguis publicar al campus de la UOC. Al requadre gris hi trobaràs automàticament la traducció a codi HTML que pots copiar i enganxar a l'editor de missatges del campus.
-
-2. Al campus de la UOC, fes servir l'opció **Nou missatge** amb normalitat. Dins l'editor, selecciona l'opció **Text pla**. Al quadre de text principal del missatge, enganxa al davant de tot el contingut del requadre gris d'aquesta pàgina. A partir d'aquí, pots publicar el missatge directament (**Envia**) o pots comprovar que el resultat és l'esperat tornant a **Text enriquit**.
-
-## Marques que pots utilitzar
-
-* Per posar una part del text en cursiva, envolta'l amb un guió baix: **\_això apareixerà en cursiva\_**.
-* Per posar una part del text en negreta, envolta'l amb dos asteriscs: **\*\*això apareixerà en negreta\*\***.
-* Per posar codi font en font monospace, envolta'l amb un caràcter d'accent obert: **\`això serà un tros de codi font\`**.
-
-<textarea id="first" oninput="trans()" style="width:100%; height: 20%; font-size: 10pt; background-color: #FF9;" placeholder="Escriu el text del missatge que vols publicar al campus..." autofocus></textarea>
-
-<textarea id="second" style="width:100%; height: 20%; font-size: 10pt; background-color: #DDD; color: #444;" readonly></textarea>
-
-<span style="font-size: 8pt;">*Programat per Albert Mata el 7 d'octubre de 2018. Si hi trobes algun error o vols suggerir alguna millora, envia'm un correu a través del campus (usuari **albertmata**).*</span>
+<h2>Marques que pots utilitzar</h2>
+<ul>
+<li>Per posar una part del text en cursiva, envolta'l amb un guió baix: <strong>_això apareixerà en cursiva_</strong>.</li>
+<li>Per posar una part del text en negreta, envolta'l amb dos asteriscs: <strong>**això apareixerà en negreta**</strong>.</li>
+<li>Per posar codi font en font monospace, envolta'l amb un caràcter d'accent obert: <strong>`això serà un tros de codi font`</strong>.</li>
+<li>El codi font es mostarà en monospace i amb el següent color (clic per modificar): <input id="color" class="jscolor" value="FF00FF"></li>
+</ul>
+<p><textarea id="first" oninput="createHtml()" style="width:100%; height: 20%; font-size: 10pt; background-color: #FF9;" placeholder="Escriu el text del missatge que vols publicar al campus…" autofocus=""></textarea></p>
+<p><button onclick="copyToClipboard()">Copiar el missatge al porta-retalls</button></p>
+<p><textarea id="second" style="width:100%; height: 10%; font-size: 8pt; background-color: #DDD; color: #777;" readonly=""></textarea></p>
+<p><span style="font-size: 8pt;"><em>Programat per Albert Mata el 7 d'octubre de 2018. Si hi trobes algun error o vols suggerir alguna millora, envia'm un correu a través del campus (usuari <strong>albertmata</strong>).</em></span></p></body></html>
