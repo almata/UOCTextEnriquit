@@ -1,0 +1,57 @@
+<head>
+	<title>UOC - Text enriquit</title>
+	<meta charset="UTF-8">
+	<script>
+		function trans() {
+			var string = document.getElementById("first").value;
+			var tokens1 = string.split("`");
+			for (i = tokens1.length - 1; i >= 0; i--) {
+				if (i % 2 != 0) {
+					tokens1.splice(i, 1, "<span style='color: #ff00ff; font-family: terminal, monaco, monospace; font-size: 10pt;'>", tokens1[i], "</span>");
+				} else {
+					var tokens2 = tokens1[i].split("**");
+					for (j = tokens2.length - 1; j >= 0; j--) {
+						if (j % 2 != 0) {
+							tokens2.splice(j, 1, "<strong>", tokens2[j], "</strong>");					
+						}
+					}
+					tokens1[i] = tokens2.join("");
+					
+				   	var tokens3 = tokens1[i].split("_");
+				   	for (k = tokens3.length - 1; k >= 0; k--) {
+				   	 	if (k % 2 != 0) {
+				   	 		tokens3.splice(k, 1, "<em>", tokens3[k], "</em>");
+				   	 	}
+					}
+				   	tokens1[i] = tokens3.join("");
+				}
+			}
+
+			var tokens = [].concat.apply([], tokens1);
+			var result = tokens.join("").replace(/(?:\r\n|\r|\n)/g, "<br>");
+
+			document.getElementById("second").value = result;
+		}
+	</script>
+	<script src="https://cdn.rawgit.com/oscarmorrison/md-page/5833d6d1/md-page.js"></script><noscript>
+</head>
+
+# Eina per facilitar l'escriptura de missatges amb formats al campus de la UOC
+
+## Instruccions
+
+1. Al primer quadre de text en aquesta pàgina escriu el missatge que vulguis publicar al campus de la UOC. Al segon quadre de text hi trobaràs automàticament la traducció a codi HTML que pots copiar i enganxar a l'editor de missatges del campus.
+
+2. Al campus de la UOC, fes servir l'opció **Nou missatge** amb normalitat. Dins l'editor, selecciona l'opció **Text pla**. Al quadre de text principal del missatge, enganxa al davant de tot el contingut del segon quadre de text d'aquesta pàgina. A partir d'aquí, pots publicar el missatge directament (**Envia**) o pots primer comprovar que el resultat és l'esperat (**Text enriquit**).
+
+## Marques que pots utilitzar
+
+* Per posar una part del text en cursiva, envolta'l amb un guió baix: \_això apareixerà en cursiva\_.
+* Per posar una part del text en negreta, envolta'l amb dos asteriscs: \*\*això apareixerà en negreta\*\*.
+* Per posar codi font en font monospace, envolta'l amb un caràcter d'accent obert: \`això serà un tros de codi font\`.
+
+<textarea id="first" oninput="trans()" style="width:100%; height: 20%; font-size: 10pt;" placeholder="Escriu el text del missatge que vols publicar al campus..." autofocus></textarea>
+
+<textarea id="second" style="width:100%; height: 20%; font-size: 10pt;" readonly></textarea>
+
+*Programat per Albert Mata el 2018. Si hi trobes algun error o vols suggerir alguna millora, envia'm un correu a través del campus (usuari **albertmata**).*
