@@ -38,11 +38,21 @@ function createHtml() {
 
 function copyToClipboard() {
 	var element = document.getElementById("second");
-	element.contentEditable = true;
-	element.readOnly = false;
-	element.select();
-	document.execCommand("copy");
+  var range = document.createRange();
+
+  element.contentEditable = true;
+  element.readOnly = false;
+  range.selectNodeContents(element);
+
+  var selection = window.getSelection();
+  selection.removeAllRanges();
+  selection.addRange(range);
+
+  element.setSelectionRange(0, 999999); // A big number, to cover anything that could be inside the element.
+
+  element.contentEditable = false;
+  element.readOnly = true;
+
+  document.execCommand('copy');
 	document.getElementById("first").focus();
-	element.contentEditable = false;
-	element.readOnly = true;
 }
