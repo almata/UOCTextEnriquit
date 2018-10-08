@@ -29,3 +29,9 @@ button {
   cursor: pointer;
 	
 }
+
+code {
+	font-family: terminal, monaco, monospace;	
+	font-size: 10pt;
+	color: #FF00FF;
+}
