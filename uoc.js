@@ -9,7 +9,7 @@ function createHtml() {
 		// En el cas del codi font, revisarem també les tokens que no inclouen codi per si cal aplicar <strong> o <em>.
 		if (i % 2 != 0) {
 			tokens.splice(i, 1, "<span style='color: #" + color + "; font-family: terminal, monaco, monospace; font-size: 10pt;'>",
-				tokens[i].replace(/ /g, '&nbsp;'), "</span>");
+				tokens[i].replace(/ /g, "&nbsp;"), "</span>");
 		} else {
 			// Canviem ** per etiquetes <strong> i </strong> segons correspongui.
 			var strong = tokens[i].split("**");

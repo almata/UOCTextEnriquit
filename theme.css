@@ -1,7 +1,7 @@
 body { 
 	background-color: #EEE;
 	padding: 20;
-	font-size: 11pt;
+	font-size: 0.95em;
 	line-height: 170%;
 	color: #555;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -24,14 +24,13 @@ button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 11pt;
+  font-size: 0.95em;
   margin: 4px 2px;
   cursor: pointer;
-	
 }
 
 code {
 	font-family: terminal, monaco, monospace;	
-	font-size: 10pt;
+  font-size: 0.90em;
 	color: #FF00FF;
 }
