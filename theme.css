@@ -1,4 +1,5 @@
 body { 
+	background-color: #EEE;
 	padding: 20;
 	font-size: 11pt;
 	line-height: 170%;
@@ -13,4 +14,18 @@ h1, h2 {
 input.jscolor {
 	width: 60px;
 	text-align: center;
+}
+
+button {
+  background-color: #000078;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 11pt;
+  margin: 4px 2px;
+  cursor: pointer;
+	
 }

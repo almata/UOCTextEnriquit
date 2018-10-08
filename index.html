@@ -1,66 +1,30 @@
 <html>
 <head>
-	<title>UOC - Text enriquit</title>
-	<meta charset="UTF-8">
-	<script>
-		function createHtml() {
-			var color = document.getElementById("color").value;
-			var string = document.getElementById("first").value;
-			var tokens1 = string.split("`");
-			for (i = tokens1.length - 1; i >= 0; i--) {
-				if (i % 2 != 0) {
-					tokens1.splice(i, 1, "<span style='color: " + color + "; font-family: terminal, monaco, monospace; font-size: 10pt;'>", tokens1[i], "</span>");
-				} else {
-					var tokens2 = tokens1[i].split("**");
-					for (j = tokens2.length - 1; j >= 0; j--) {
-						if (j % 2 != 0) {
-							tokens2.splice(j, 1, "<strong>", tokens2[j], "</strong>");					
-						}
-					}
-					tokens1[i] = tokens2.join("");
-					
-				   	var tokens3 = tokens1[i].split("_");
-				   	for (k = tokens3.length - 1; k >= 0; k--) {
-				   	 	if (k % 2 != 0) {
-				   	 		tokens3.splice(k, 1, "<em>", tokens3[k], "</em>");
-				   	 	}
-					}
-				   	tokens1[i] = tokens3.join("");
-				}
-			}
-
-			var tokens = [].concat.apply([], tokens1);
-			var result = tokens.join("").replace(/(?:\r\n|\r|\n)/g, "<br>");
-			document.getElementById("second").value = result;			
-		}
-		
-		function copyToClipboard() {
-			document.getElementById("second").select();
-			document.execCommand("copy");
-			document.getElementById("first").focus();
-		}
-	</script>
-	<script src="jscolor.js"></script>		
-	<link rel="stylesheet" type="text/css" href="theme.css">
+<title>UOC - Text enriquit</title>
+<meta charset="UTF-8">
+<script src="uoc.js"></script>		
+<script src="jscolor.js"></script>		
+<link rel="stylesheet" type="text/css" href="theme.css">
 </head>
 	
 <body>
-<h1>Eina per facilitar l'escriptura de missatges amb formats al campus de la UOC</h1>
-<h2>Instruccions</h2>
+<p><textarea id="first" oninput="createHtml()" style="width:100%; height: 50%; font-size: 11pt; background-color: #FFF;" placeholder="Escriu el text del missatge que vols publicar al campus…" autofocus=""></textarea></p>
+<p style="text-align: center;"><button onclick="copyToClipboard()">Copiar el missatge al porta-retalls</button></p>
+<p><textarea id="second" style="width:100%; height: 10%; font-size: 8pt; background-color: #DDD; color: #777;" readonly=""></textarea></p>
+	
+<h2>Com funciona?</h2>
 <ol>
-<li>Al requadre groc, escriu el missatge que vulguis publicar al campus de la UOC.</li>
+<li>Escriu el missatge que vulguis publicar al campus de la UOC.</li>
 <li>Quan acabis, prem el botó <strong>Copiar el missatge al porta-retalls</strong>.</li>
 <li>Al campus de la UOC, fes servir l'opció <strong>Nou missatge</strong> amb normalitat. A l'editor, selecciona l'opció <strong>Text pla</strong> i al quadre de text principal del missatge enganxa el contingut del porta-retalls. A partir d'aquí, pots publicar el missatge directament (<strong>Envia</strong>) o pots comprovar que el resultat és l'esperat tornant a <strong>Text enriquit</strong>.</li>
 </ol>
 
 <h2>Marques que pots utilitzar</h2>
 <ul>
-<li>Per posar una part del text en cursiva, envolta'l amb un guió baix: <strong>_això apareixerà en cursiva_</strong>.</li>
+<li>Per posar una part del text en cursiva, envolta'l amb un guió baix: <em>_això apareixerà en cursiva_</em>.</li>
 <li>Per posar una part del text en negreta, envolta'l amb dos asteriscs: <strong>**això apareixerà en negreta**</strong>.</li>
-<li>Per posar codi font en font monospace, envolta'l amb un caràcter d'accent obert: <strong>`això serà un tros de codi font`</strong>.</li>
+<li>Per posar codi font en font monospace, envolta'l amb un caràcter d'accent obert: <code>`això serà un tros de codi font`</code>.</li>
 <li>El codi font es mostarà en monospace i amb el següent color (clic per modificar): <input id="color" class="jscolor" value="FF00FF"></li>
 </ul>
-<p><textarea id="first" oninput="createHtml()" style="width:100%; height: 20%; font-size: 10pt; background-color: #FF9;" placeholder="Escriu el text del missatge que vols publicar al campus…" autofocus=""></textarea></p>
-<p><button onclick="copyToClipboard()">Copiar el missatge al porta-retalls</button></p>
-<p><textarea id="second" style="width:100%; height: 10%; font-size: 8pt; background-color: #DDD; color: #777;" readonly=""></textarea></p>
-<p><span style="font-size: 8pt;"><em>Programat per Albert Mata el 7 d'octubre de 2018. Si hi trobes algun error o vols suggerir alguna millora, envia'm un correu a través del campus (usuari <strong>albertmata</strong>).</em></span></p></body></html>
+
+<p><span style="font-size: 8pt;"><em>Programat per Albert Mata l'octubre de 2018. Si hi trobes algun error o vols suggerir alguna millora, envia'm un correu a través del campus (usuari <strong>albertmata</strong>).</em></span></p></body></html>
