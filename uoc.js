@@ -1,6 +1,7 @@
 function createHtml() {
 	var color = document.getElementById("color").value;
 	var string = document.getElementById("first").value;
+	string = string.replace(/</g, "&lt;"); // Issue #1
 	
 	// Canviem ` per etiquetes <span> (amb format de font, mida i color) i </span> segons correspongui.
 	var tokens = string.split("`");
@@ -36,7 +37,12 @@ function createHtml() {
 }
 
 function copyToClipboard() {
-	document.getElementById("second").select();
+	var element = document.getElementById("second");
+	element.contentEditable = true;
+	element.readOnly = false;
+	element.select();
 	document.execCommand("copy");
 	document.getElementById("first").focus();
+	element.contentEditable = false;
+	element.readOnly = true;
 }
