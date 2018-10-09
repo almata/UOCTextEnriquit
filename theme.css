@@ -3,7 +3,7 @@
 }
 
 body { 
-	background-color: #EEE;
+	background-color: #FFF;
 	padding: 20;
 	font-size: 0.95em;
 	line-height: 170%;
@@ -18,6 +18,15 @@ h1, h2, a {
 input.jscolor {
 	width: 60px;
 	text-align: center;
+}
+
+textarea {
+	border: solid 15px #F0F0F0;
+	overflow: auto;
+	outline: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
 }
 
 button {
