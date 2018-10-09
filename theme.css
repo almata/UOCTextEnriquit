@@ -2,6 +2,11 @@
   --main-color: #4F86C6;
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body { 
 	background-color: #FFF;
 	padding: 20;
