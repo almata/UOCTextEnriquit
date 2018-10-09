@@ -1,3 +1,7 @@
+:root {
+  --main-color: #4F86C6;
+}
+
 body { 
 	background-color: #EEE;
 	padding: 20;
@@ -7,8 +11,8 @@ body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 } 
 
-h1, h2 {
-	color: #000078;
+h1, h2, a {
+	color: var(--main-color);
 }
 
 input.jscolor {
@@ -17,7 +21,7 @@ input.jscolor {
 }
 
 button {
-  background-color: #000078;
+  background-color: var(--main-color);
   border: none;
   color: white;
   padding: 10px;
@@ -33,4 +37,8 @@ code {
 	font-family: terminal, monaco, monospace;	
   font-size: 0.90em;
 	color: #FF00FF;
+}
+
+span.color {
+	color: var(--main-color);	
 }
