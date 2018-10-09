@@ -22,7 +22,6 @@ input.jscolor {
 
 textarea {
 	border: solid 15px #F0F0F0;
-	overflow: auto;
 	outline: none;
 	-webkit-appearance: none;
 	-webkit-box-shadow: none;
