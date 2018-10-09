@@ -27,7 +27,7 @@ textarea {
 	-webkit-appearance: none;
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
-	box-shadow: none;
+	box-shadow: none !important;
 }
 
 button {
