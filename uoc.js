@@ -63,6 +63,7 @@ function copyToClipboard() {
 
 function changeCodeColor() {
 	document.getElementById("code").style.color = document.getElementById("color").value;
+	createHtml();
 }
 
 function htmlLinkFrom(match) {
