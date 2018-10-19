@@ -68,5 +68,5 @@ function changeCodeColor() {
 
 function htmlLinkFrom(match) {
 	var tokens = match.split(/[\[\(\)\]]/).filter(n => n != "");
-	return "<a href='" + tokens[1] + "'>" + tokens[0] + "</a>";
+	return "<a style='color: #396;' href='" + tokens[1] + "'>" + tokens[0] + "</a>";
 }
