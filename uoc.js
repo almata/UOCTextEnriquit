@@ -33,6 +33,15 @@ function createHtml() {
 		   	}
 			}
 		  tokens[i] = em.join("");
+
+			// Canviem # per etiquetes <span style='font-size: 18pt;'><strong> i </strong></span> segons correspongui.			
+		  var header = tokens[i].split("#");
+		  for (j = header.length - 1; j >= 0; j--) {
+		   	if (j % 2 != 0) {
+		   	 header.splice(j, 1, "<span style='font-size: 18pt;'><strong>", header[j], "</strong></span>");
+		   	}
+			}
+		  tokens[i] = header.join("");
 		}
 	}
 
