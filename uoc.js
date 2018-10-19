@@ -55,7 +55,7 @@ function copyToClipboard() {
 	
 	element.contentEditable = true;
 	element.readOnly = false;
-	range.selectNodeContents(element);
+	range.selectNode(element); // range.selectNodeContents(element) doesn't work in Chrome
 	
 	var selection = window.getSelection();
 	selection.removeAllRanges();
