@@ -12,10 +12,6 @@ function createHtml() {
 			tokens.splice(i, 1, "<span style='color: #" + color + "; font-family: terminal, monaco, monospace; font-size: 10pt;'>",
 				tokens[i].replace(/ /g, "&nbsp;"), "</span>");
 		} else {
-			// Canviem [xxx](yyy) per <a href='yyy'>xxx</a>.
-			var regex = /\[(.*?)\]\((.*?)\)/g;
-			tokens[i] = tokens[i].replace(regex, htmlLinkFrom);
-			
 			// Canviem ** per etiquetes <strong> i </strong> segons correspongui.
 			var strong = tokens[i].split("**");
 			for (j = strong.length - 1; j >= 0; j--) {
@@ -42,6 +38,10 @@ function createHtml() {
 		   	}
 			}
 		  tokens[i] = header.join("");
+			
+			// Canviem [xxx](yyy) per <a href='yyy'>xxx</a>.
+			var regex = /\[(.*?)\]\((.*?)\)/g;
+			tokens[i] = tokens[i].replace(regex, htmlLinkFrom);			
 		}
 	}
 
