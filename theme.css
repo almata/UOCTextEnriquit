@@ -28,6 +28,7 @@ input.jscolor {
 textarea {
 	border: solid 15px #F0F0F0;
 	outline: none;
+	resize: none;
 	-webkit-appearance: none;
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
@@ -50,7 +51,7 @@ button {
 code {
 	font-family: terminal, monaco, monospace;	
   font-size: 0.90em;
-	color: #EE55EE;
+	color: #FF7034;
 }
 
 span.color {

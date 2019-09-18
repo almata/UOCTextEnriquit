@@ -10,27 +10,32 @@
 </head>
 	
 <body>
-<p><textarea id="first" oninput="createHtml()" style="width:100%; height: 55%; font-size: 0.95em; background-color: #FFF;" placeholder="Escriu aquí el missatge que vols publicar al campus…" autofocus=""></textarea></p>
-<p style="text-align: center;"><button onclick="copyToClipboard()">Copiar el missatge al porta-retalls</button></p>
-<p><textarea id="second" style="width:100%; height: 15%; font-size: 0.8em; background-color: #F0F0F0; color: #999;" readonly=""></textarea></p>
-	
-<h2>Com funciona?</h2>
-<ol>
-<li>Escriu el missatge que vulguis publicar al campus de la UOC.</li>
-<li>Quan acabis, prem el botó <strong>Copiar el missatge al porta-retalls</strong>.</li>
-<li>A l'editor de missatges del campus, selecciona l'opció <strong>Text pla</strong> i al cos del missatge enganxa el contingut del porta-retalls. A partir d'aquí, pots publicar el missatge directament (<strong>Envia</strong>) o pots comprovar que el resultat és l'esperat tornant a <strong>Text enriquit</strong>.</li>
-</ol>
+<p><textarea id="first" oninput="createHtml()" style="width:100%; height: 65%; background-color: #FFF;" placeholder="Escriu aquí el missatge que vols publicar al campus…" autofocus=""></textarea></p>
+<!-- <p style="text-align: center;"><button onclick="copyToClipboard()">Copiar el missatge al porta-retalls</button></p> -->
+<p><textarea id="second" style="border: 0px #FFF; width:0%; height: 0%; background-color: #FFF; color: #FFF;" readonly=""></textarea></p>
 
-<h2>Marques que pots utilitzar</h2>
 <ul>
-<li>Escriu un títol o remarca una part envoltant-la entre coixinets: <span class="color" style="font-size: 16pt;"><strong>#això apareixerà remarcat#</strong></span>.</li>
-<li>Escriu una part del text en cursiva envoltant-la entre guions baixos: <span class="color"><em>_això apareixerà en cursiva_</em></span>.</li>
-<li>Escriu una part del text en negreta envoltant-la entre dos asteriscs: <span class="color"><strong>**això apareixerà en negreta**</strong></span>.</li>
-<li>Escriu un enllaç posant el text entre claudàtors seguit sense espais de l'enllaç entre parèntesis: <span class="color">[UOC](http://www.uoc.edu)</span> es transformarà en <a style='color: #396;' href='http://www.uoc.edu'>UOC</a>.</li>
-<li>Escriu codi font amb tipografia monospace envoltant-lo entre caràcters d'accent obert: <code id="code">`això serà un tros de codi font`</code>.</li>
-<li>El codi font es mostrarà en aquest color (clic per modificar): <input id="color" class="jscolor" value="EE55EE" onchange="changeCodeColor()"></li>
+    <li>Remarcat amb coixinets &rArr; <span class="color" style="font-size: 16pt;"><strong>#això es mostrarà remarcat#</strong></span></li>
+    <li>Cursiva amb guions baixos &rArr; <span class="color"><em>_això es mostrarà en cursiva_</em></span></li>
+    <li>Negreta amb doble asterisc &rArr; <span class="color"><strong>**això es mostrarà en negreta**</strong></span></li>
+    <li>Enllaç amb text entre claudàtors seguit sense espais d'enllaç entre parèntesis &rArr; <span class="color">[UOC](http://www.uoc.edu)</span> es transformarà en <a style='color: #396;' href='http://www.uoc.edu'>UOC</a></li>
+    <li>Codi font amb caràcters d'accent obert &rArr; <code id="code">`això serà un tros de codi font`</code></li>
+    <li>Color codi font (clic per modificar) &rArr; <input id="color" class="jscolor" value="FF7034" onchange="changeCodeColor()"></li>
+</ul>    
+
+<h2>Com funciona?</h2>
+
+<ul>
+<li>Escriu el missatge que vulguis publicar al campus de la UOC amb les marques que calguin.</li>
+<li>Quan acabis, el missatge ja formatat quedarà copiat automàticament al porta-retalls.<br/><em>Nota: si utilitzes Safari i has enganxat el teu missatge en comptes d'escriure'l, afegeix un espai final perquè el missatge formatat es copiï correctament al porta-retalls.</em></li>
+<li>A partir d'aquí segueix aquests passos a l'editor de missatges del campus:</li>
+<ul>
+    <li>Selecciona l'opció <strong>Text pla</strong>.</li>
+    <li>Al cos del missatge enganxa el contingut del porta-retalls amb <strong>Ctrl</strong> <strong>V</strong> o <strong>&#8984;</strong> <strong>V</strong> segons el teu sistema operatiu.</li>
+    <li>Publica el missatge directament amb <strong>Envia</strong> o comprova que el resultat és l'esperat tornant a <strong>Text enriquit</strong>.</li>
+</ul>
 </ul>
 
-<p><span style="font-size: 8pt; line-height: 125%;">Programat per Albert Mata l'octubre de 2018 (versió 0.29). Si hi trobes algun error o vols suggerir alguna millora, envia'm un correu a través del campus (usuari <strong>albertmata</strong>).</span></p>
+<p><span style="font-size: 8pt; line-height: 125%;">Programat per Albert Mata. Primera versió: octubre 2018. Versió 0.30: setembre 2019. Si trobes algun error o vols suggerir alguna millora, envia'm un correu a <strong>albertmata@uoc.edu</strong>.</span></p>
 </body>
 </html>
