@@ -1,5 +1,5 @@
 :root {
-  --main-color: #4F86C6;
+  --main-color: rgb(55, 111, 174);
 }
 
 html, body {
@@ -11,13 +11,20 @@ body {
 	background-color: #FFF;
 	padding: 20;
 	font-size: 0.95em;
+	font-weight: 200;
 	line-height: 170%;
-	color: #555;
+	color: #999;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 } 
 
+strong {
+	font-weight: 400;
+}
+
 h1, h2, a {
 	color: var(--main-color);
+	font-weight: 400;
+	margin-top: 40px;
 }
 
 input.jscolor {
