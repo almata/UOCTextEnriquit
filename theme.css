@@ -42,6 +42,17 @@ textarea {
 	box-shadow: none !important;
 }
 
+input {
+	border: none;
+	padding: 2px;
+	outline: none;
+	resize: none;
+	-webkit-appearance: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none !important;
+}
+
 button {
   background-color: var(--main-color);
   border: none;
