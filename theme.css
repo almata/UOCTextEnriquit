@@ -34,6 +34,10 @@ input.jscolor {
 
 textarea {
 	border: solid 15px #F0F0F0;
+	font-size: 1em;
+	line-height: 120%;
+	color: #333;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	outline: none;
 	resize: none;
 	-webkit-appearance: none;
@@ -69,7 +73,7 @@ button {
 code {
 	font-family: terminal, monaco, monospace;	
   font-size: 0.90em;
-	color: #FF7034;
+	color: #A827D5;
 }
 
 span.color {
